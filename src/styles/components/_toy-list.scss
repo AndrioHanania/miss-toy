@@ -1,0 +1,46 @@
+.toy-list {
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+
+    .admin-dashboard {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding: 10px;
+        background-color: #000000c9;
+        transition: transform 0.2s;
+
+        :root.dark & {
+            background-color: #ffffffc9;
+        }
+
+        button {
+            border-radius: 5px;
+            padding: 5px;
+            font-weight: 600;
+            font-size: medium;
+            
+            :root.dark & {
+                background-color: #000000c9;
+                color: white;
+            }
+
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .add-toy {
+        a {
+            img {
+                height: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,123 @@
+@use '../setup/variables' as *;
+@use '../setup/functions' as *;
+@use '../setup/mixins' as *;
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --background-color: #ffffff;
+    --text-color: #1a202c;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+:root.dark {
+    --background-color: #1a202c;
+    --text-color: #f7fafc;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+html, body {
+    height: 100vh;
+    margin: 0;
+}
+
+
+html { 
+    font-family: Bahnschrift, sans-serif; 
+    //color: $clr3;
+    line-height: 1.8;
+    line-height: lh(26px);
+}
+
+body {
+    margin: 0;
+    //background-color: $clr2;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    margin: 0 0 1rem;
+    line-height: lh(40px, 29px);
+    color: var(--text-color);
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: rem(60px);
+}
+
+h2 {
+    font-size: em(16px);
+    }
+
+h3 {
+    font-size: em(29px);
+}
+
+img {
+    width: 100%;
+}
+
+p {
+    margin: 0;
+    max-width: 60ch;
+}
+
+input {
+    border-radius: 5px;
+}
+
+select {
+    min-width: 200px;
+    min-height: 100px;
+
+    option {
+        padding: 8px;
+        cursor: pointer;
+
+        &:not(:checked):hover {
+            background-color: #f1f5f9;
+        }
+    }
+} 
+
+.btn {
+    @include btn($type: regular);
+    
+    &-dark {
+        @include btn($type: dark);
+    }
+    
+    &-light {
+        @include btn($type: light);
+    }
+}
+
+a {
+    color: var(--text-color);
+
+    &.active {
+        color: #070fec;
+
+        :root.dark & {
+            color: #06bcf9;
+        }
+    }
+}
+
+mark {
+    color: $clr1;
+    background-color: transparent;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}

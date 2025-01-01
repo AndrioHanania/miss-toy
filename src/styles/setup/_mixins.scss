@@ -1,0 +1,83 @@
+
+@use "sass:color";
+@use '../setup/variables' as *;
+
+@mixin outline-animation($color, $name: show-hide-outline) {
+    @keyframes #{$name} {
+        0% {
+            outline: 2px solid transparent;
+        }
+        10% {
+            outline: 2px solid $color;
+        }
+        100% {
+            outline: 2px solid transparent;
+        }
+    }
+}  
+
+@mixin flex-center($dir: row) { 
+    display: flex;
+    flex-direction: $dir;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin colors($bg-color, $text-color) {
+    background-color: $bg-color;
+    color: $text-color;
+}
+
+@mixin dark-layout {
+    background-color: #2e2e2e;
+    color: #ffffff;
+}
+
+@mixin light-layout {
+    background: #cacaca;
+    color: rgb(0, 0, 0);
+}
+
+@mixin btn(
+    $type: regular,
+    $bg: $clr1,
+    $clr: $clr3,
+    $padding: em(24px) em(44px),
+    $hover: color.adjust($bg, $lightness: -8%)
+) {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: $padding;
+    line-height: 1.25;
+    font-size: em(14px);
+    font-variation-settings: "wght" 430;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    transition: background-color 0.2s;
+
+    @if $type == regular {
+        background-color: #449ccb;
+        color: #000000;
+        &:hover {
+        background-color: color.adjust(#449ccb, $lightness: -8%);
+        }
+    } @else if $type == dark {
+        background-color: $clr2;
+        color: $clr3;
+        &:hover {
+        background-color: $clr1;
+        color: $clr3;
+        }
+    } @else if $type == light {
+        background-color: $clr3;
+        color: $clr2;
+        &:hover {
+        background-color: $clr1;
+        color: $clr3;
+        }
+    }
+}

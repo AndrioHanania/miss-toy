@@ -1,0 +1,63 @@
+.toy-edit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 400px;
+    aspect-ratio: 1;
+    position: fixed;
+    inset: 0;
+    top: -10%;
+    margin: auto;
+    box-shadow:
+        0 0 0 100vmax rgba(0, 0, 0, 0.5),
+        -3px 1px 28px #00000043;
+    padding: 20px;
+    background-color: rgb(236, 239, 236);
+    border: solid 3px hsl(230, 100%, 85%);
+    border-radius: 10px;
+
+    .close-btn {
+        position: absolute;
+        top: 2em;
+        right: 2em;
+    }
+
+    form {
+        width: 80%;
+        max-width: 450px;
+        display: flex;
+        flex-direction: column;
+
+        label {
+            margin-top: 20px;
+        }
+
+        button {
+            width: 50%;
+            margin-top: 40px;
+            align-self: center;
+            color: black;
+        }
+    }
+
+    .upload-preview {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        label, input {
+            order: 1;
+        }
+
+        input {
+            margin-left: 75px;       
+        }
+
+        img {
+            order: 2;
+            width: 100px;
+            height: 100px;
+        }
+    }
+}

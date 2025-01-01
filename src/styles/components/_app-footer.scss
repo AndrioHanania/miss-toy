@@ -1,0 +1,13 @@
+@use '../setup/mixins' as *;
+
+.app-footer {
+    @include light-layout;
+    transition: .2s;
+    font-size: 20px;
+    padding: 10px;
+    @include flex-center;
+
+    :root.dark & {
+        @include dark-layout;
+    }
+}

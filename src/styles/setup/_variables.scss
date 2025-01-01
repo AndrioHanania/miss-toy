@@ -1,0 +1,17 @@
+@use "sass:color";
+
+// COLOR PALETTE
+$clr1: #FF521C;
+$clr2: #000;
+$clr3: #fff;
+$clr4: color.adjust($clr3, $lightness: -40%);
+$clr5: #2d2d2d;
+$user-msg-types: (
+    success: (#d4edda, #155724),
+    error: (#f8d7da, #721c24)
+);
+$sun-color:  #eab308;
+$moon-color:  #3b82f6;
+
+// LAYOUT
+$layoutPadding: 20px;

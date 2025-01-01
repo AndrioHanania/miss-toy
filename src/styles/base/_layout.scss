@@ -1,0 +1,19 @@
+@use '../setup/variables' as *;
+
+
+.main-layout {
+    display: grid;
+    grid-template-columns: $layoutPadding 1fr $layoutPadding;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+    
+    > *.full {
+        grid-column: 1 / -1;
+    }
+
+    > *:not(.full) {
+        grid-column: 2;
+        display: grid;
+        grid-auto-flow: dense;
+    }
+}

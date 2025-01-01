@@ -1,0 +1,17 @@
+.toy-filter {
+    background-color: green;
+    padding: 1em;
+    margin: 1em 0;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: max-content;
+        gap: 5px;
+
+        .label-input-form {
+            display: flex;
+            gap: 5px;
+        }
+    }
+}
