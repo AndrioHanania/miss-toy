@@ -6,7 +6,7 @@ export function ToyList({ toys, onRemoveToy, isLoggedinUserAdmin }) {
         <ul className="toy-list">
             <li key="add-toy" className="add-toy">
                 <Link to="/toy/edit">
-                    <img src="/src/assets/plus-icon.svg" alt="add toy"/>
+                    <img src="/miss-toy/plus-icon.svg" alt="add toy"/>
                 </Link>
             </li>
 

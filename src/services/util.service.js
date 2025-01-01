@@ -78,8 +78,27 @@ export function getExistingProperties(obj) {
 }
 
 function getTruthyValues(obj) {
+   // console.log('obj:', obj)
+
     return Object.keys(obj).reduce((acc, key) => {
-        if (typeof obj[key] === 'object' && obj[key] !== null) {
+        if (Array.isArray(obj[key])) {
+            if (obj[key].length > 0) {
+                // Recursively process each element in the array
+                const processedArray = obj[key].map(item => {
+                    if (typeof item === 'object' && item !== null) {
+                        return getTruthyValues(item)
+                    }
+                    return item
+                }).filter(Boolean) // Remove any falsy values
+
+                //console.log('processedArray:', processedArray)
+                
+                if (processedArray.length > 0) {
+                    acc[key] = processedArray.join(',')
+                }
+            }
+        }
+        else if (typeof obj[key] === 'object' && obj[key] !== null) {
             const nestedTruthy = getTruthyValues(obj[key])
             Object.assign(acc, nestedTruthy)
         } else if (obj[key] && key !== 'userId') {

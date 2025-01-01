@@ -78,7 +78,7 @@ export function ToyFilter({ filterBy, onSetFilter }) {
                         className="labels-select"
                         multiple
                     >
-                        <option value="">Choose a Label</option>
+                        <option disabled value="">Choose a Label</option>
     
                         {toyService.getLabels().map(label => 
                             <option key={label} value={label}>

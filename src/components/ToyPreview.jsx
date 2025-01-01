@@ -8,7 +8,7 @@ export function ToyPreview({ toy }) {
                 <h2>{toy.name}</h2>
                 <h4>{toy.price}</h4>
                 <img className="toy-img" src={toy.imageUrl} alt={toy.txt} />
-                {toy.inStock && <img className="in-stock" src="/src/assets/in-stock.png" alt="in stock"/>}
+                {toy.inStock && <img className="in-stock" src="/miss-toy/in-stock.png" alt="in stock"/>}
             </Link>
         </article>
     )

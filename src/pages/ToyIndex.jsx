@@ -8,7 +8,7 @@ import { utilService } from "../services/util.service.js"
 import { Loader } from "../components/Loader.jsx"
 import { Pagination } from "../components/Pagination.jsx"
 import { useEffect } from "react"
-import { Link, Outlet, useSearchParams } from "react-router-dom"
+import { Outlet, useSearchParams } from "react-router-dom"
 import { useSelector } from "react-redux";
 import { onToggleModal } from '../store/app/app.actions.js'
 
@@ -18,24 +18,27 @@ export default function ToyIndex() {
     const filterBy = useSelector(storeState => storeState.toyModule.filterBy);
     const isLoading = useSelector(storeState => storeState.toyModule.isLoading);
     const [searchParams, setSearchParams] = useSearchParams();
-    const defaultFilter = toyService.getFilterFromSearchParams(searchParams)
     const user = useSelector(storeState => storeState.userModule.user);
     const isLoggedinUserAdmin = user?.isAdmin;
 
     useEffect(() => {
-        setFilterBy(defaultFilter)
-    }, [])
+        const defaultFilter = toyService.getFilterFromSearchParams(searchParams)
+        setFilterBy(defaultFilter);
+    }, []);
 
     useEffectUpdate(() => {
-        setSearchParams(utilService.getTruthyValues(filterBy))
+        setSearchParams(utilService.getTruthyValues(filterBy));
+    }, [filterBy]);
 
+    useEffect(() => {
         try{
-            loadToys(filterBy);
+            loadToys();
         }
         catch(error){
-            showErrorMsg('Could not load toys');
+            console.eror('err:', err);
+            showErrorMsg('Cannot load toys');
         }
-    }, [filterBy])
+    }, [searchParams]);
 
     function RemoveToyModal({ toyId }) {
         return (

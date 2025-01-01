@@ -127,8 +127,16 @@ function getFilterFromSearchParams(searchParams) {
     const defaultFilter = getDefaultFilter()
     const filterBy = {}
     for (const field in defaultFilter) {
-        filterBy[field] = searchParams.get(field) || defaultFilter[field]; 
+        const pramVal = searchParams.get(field)
+
+        if(pramVal){
+            const pramValSplit = pramVal.split(",")
+            filterBy[field] = pramValSplit.length === 1 ? pramVal : pramValSplit      
+        }
+        else 
+            filterBy[field] = defaultFilter[field]        
     }
+
     return filterBy
 }
 
