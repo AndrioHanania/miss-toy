@@ -4,6 +4,7 @@ import { LoginSignup } from './LoginSignup.jsx'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 import { login, logout, signup } from '../store/user/user.actions.js'
 import ThemeToggle from './ThemeToggle.jsx'
+import InstallButton from './InstallButton.jsx'
 
 export const AppHeader = () => {
     const user = useSelector(storeState => storeState.userModule.user)
@@ -41,6 +42,8 @@ export const AppHeader = () => {
                 <h1>MissToys</h1>
 
                 <ThemeToggle />
+
+                <InstallButton/>
 
                 <nav>
                     <NavLink to='/' >Home</NavLink>
